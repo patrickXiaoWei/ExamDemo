@@ -86,8 +86,11 @@ public class ScheduleTest
     public void testAddTask0()
     {
         int actual = schedule.init();
+        //System.out.println("testAddTask0 begin: " + actual);
         actual = schedule.registerNode(1);
         actual = schedule.addTask(1, 10);
+        //System.out.println("testAddTask0 end: " + actual);
+        //System.out.println("testAddTask0 actual: " + actual);
         Assert.assertEquals(ReturnCodeKeys.E008, actual);
     }
     
@@ -134,18 +137,18 @@ public class ScheduleTest
     public void testScheduleTask0()
     {
         int actual = schedule.init();
-        schedule.registerNode(7);
-        schedule.registerNode(1);
-        schedule.registerNode(6);
+        schedule.registerNode(7); //17
+        schedule.registerNode(1); //16
+        schedule.registerNode(6); //17
         
-        schedule.addTask(1, 2);
-        schedule.addTask(2, 14);
-        schedule.addTask(3, 4);
-        schedule.addTask(4, 16);
-        schedule.addTask(5, 6);
-        schedule.addTask(6, 5);
-        schedule.addTask(7, 3);
-        
+        schedule.addTask(1, 2); 
+        schedule.addTask(2, 14); 
+        schedule.addTask(3, 4);  
+        schedule.addTask(4, 16); 
+        schedule.addTask(5, 6);  
+        schedule.addTask(6, 5);  
+        schedule.addTask(7, 3);  
+       
         actual = schedule.scheduleTask(10);
         
         Assert.assertEquals(ReturnCodeKeys.E013, actual);
